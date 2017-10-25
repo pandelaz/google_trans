@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                loadDoc();
+            });
+
+            function loadDoc() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText);
+                    } else {
+                        console.log("failed");
+                    }
+                };
+                xhttp.open("GET", "https://translate.google.com.tw/#en/zh-TW/HELLO", true);
+                xhttp.send();
+            }
+        });
+    </script>
+    <button>Click me</button>
+</body>
+
+</html>
